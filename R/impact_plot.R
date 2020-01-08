@@ -137,20 +137,20 @@ CreateImpactPlot <- function(impact, metrics = c("original", "pointwise",
                                     impact$model$post.period,
                                     time(impact$series))
   q <- q + geom_vline(xintercept = xintercept,
-                      colour = "darkgrey", size = 0.8, linetype = "dashed")
+                      colour = "darkgrey", size = 1, linetype = "dashed")
 
   # Add zero line to pointwise and cumulative plot
   q <- q + geom_line(aes(y = baseline),
-                     colour = "darkgrey", size = 2, linetype = "solid", 
+                     colour = "darkgrey", size = 1.5, linetype = "solid", 
                      na.rm = TRUE)
 
   # Add point predictions
   q <- q + geom_line(aes(y = mean), data,
-                     size = 2, colour = "darkblue", linetype = "dashed",
+                     size = 1.5, colour = "darkblue", linetype = "dashed",
                      na.rm = TRUE)
 
   # Add observed data
-  q <- q + geom_line(aes(y = response), size = 2,  na.rm = TRUE)
+  q <- q + geom_line(aes(y = response), size = 1.5,  na.rm = TRUE)
   return(q)
 }
 
